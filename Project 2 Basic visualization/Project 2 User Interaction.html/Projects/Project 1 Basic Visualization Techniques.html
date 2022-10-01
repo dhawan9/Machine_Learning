@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html><head>
+</head>
+<body style="font-family: verdana, sans-serif;font-size: 12px;color: #494c4e;">
+<html><head></head><body><p></p>
+<h3><span style="font-family: arial, helvetica, sans-serif; font-size: 24px;">CS49000-VIZ - Fall 2020</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 24px;">Programming Assignment 1: Basic Visualization Techniques</span></h3>
+<div>
+<h1>Key Dates</h1>
+<table>
+<tbody>
+<tr>
+<td><strong>Handed out:</strong></td>
+<td>August 25, 2021</td>
+</tr>
+<tr>
+<td>Due date:</td>
+<td><strong>September 8, 2021 </strong><em>(before 11:59 PM)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+<p></p>
+<h1 id="overview">Objectives</h1>
+<p>This first programming assignment will give you a quick overview of various basic visualization techniques while allowing you to become more familiar with a visualization library. You will work with a tabular dataset and visualize it in different ways. Since this is the first assignment, your visualizations will be rather simple and no interactivity is required.</p>
+<p></p>
+<p></p>
+<h1 id="background">Context</h1>
+<p>The dataset for this project is the classical&nbsp;<em>old cars</em>&nbsp;dataset, which lists several characteristics of various cars built between 1970 and 1982. This is a typical tabular dataset where the items (or keys) correspond to the individual car models and the attributes correspond to the available characteristics. This type of dataset is non-trivial to visualize because several attributes (in this case 6) need to be represented simultaneously. Here, we will mostly circumvent this challenge by considering different subsets of the data.</p>
+<p>Practically, the dataset indicates for each vehicle: the car name ('<em>Car</em>'), the gas mileage ('<em>MPG</em>'), the engine volume ('<em>Displacement</em>'), the engine's horsepower ('<em>Horsepower</em>'), the car's weight ('<em>Weight</em>'), the model year ('<em>Year</em>'), and the production origin ('<em>Origin</em>'). There are a total of 398 entries in this table. The dataset is provided as a csv file and as a xls file.</p>
+<p></p>
+<p></p>
+<h1 id="tasks">Tasks</h1>
+<h2 id="bar chart">Task 1: Grouped Bar Chart</h2>
+<div id="bar_chart_img">
+<p><img style="width: 350px;" title="Grouped bar chart example" alt="Grouped Bar Chart" src="https://www.cs.purdue.edu/homes/xmt/classes/CS490-VIZ-Fall2020/projects/img/groupedbc.jpg"></p>
+</div>
+<p></p>
+<p>Visualize with a grouped bar chart (see above) the gas mileage distribution of all the models by production origin. In other words, you will create a chart in which each gas mileage value (expressed in miles per gallon or ‘mpg’) is associated with 3 bars (one for each origin: US, Europe, Japan) and show how the distributions of the gas mileage values compare across regions. For that you will discretize the range of possible gas mileage values in <b>3 mpg</b> increments.</p>
+<p></p>
+<p><strong>Deliverable:</strong>&nbsp;p1_grouped.py</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 id="line chart">Task 2: Line Chart</h2>
+<div id="line_chart_img">
+<p><img style="width: 350px;" title="Line chart example" alt="Line chart" src="https://www.cs.purdue.edu/homes/xmt/classes/CS490-VIZ-Fall2020/projects/img/linechart.jpg"></p>
+</div>
+<p></p>
+<p>Visualize for each production origin the temporal evolution of the gas mileage from 1970 to 1982 using a line chart. Each data point will correspond to the annual average of the gas mileage for a given origin and each curve will comprise 13 points. Assign a different color to each curve and plot all three curves in the same figure.</p>
+<p></p>
+<p><strong>Deliverable:</strong>&nbsp;p1_line.py</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 id="scatter plot">Task 3: Scatter Plot</h2>
+<div id="line_chart_img">
+<p><img style="width: 350px;" title="Scatter plot example" alt="Scatter plot" src="https://www.cs.purdue.edu/homes/xmt/classes/CS490-VIZ-Fall2020/projects/img/scatterplot.jpg"></p>
+</div>
+<p></p>
+<p>So far, we have only visualized a single attribute (<em>ie.</em> the gas mileage). For this third task, visualize the relationship between horsepower and gas mileage in a scatter plot. The horizontal axis should correspond to ‘Horsepower’, the vertical axis to ‘MPG’ and each data point to a particular car. Apply to the scatter plot a color coding indicating the 'Year'. Use for that purpose the color palette <b><a href="https://docs.bokeh.org/en/latest/docs/reference/palettes.html#bokeh.palettes.viridis">Viridis</a></b></p>
+<p></p>
+<p><strong>Deliverable:</strong>&nbsp;p1_scatter.py</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 id="splom">Task 4: Scatter Plot Matrix</h2>
+<div id="line_chart_img">
+<p><img style="width: 350px;" title="Scatter plot matrix example" alt="Scatter plot matrix" src="https://www.cs.purdue.edu/homes/xmt/classes/CS490-VIZ-Fall2020/projects/img/spmatrix.jpg"></p>
+</div>
+<p>Visualize gas mileage, weight, horsepower, and engine volume in a scatter plot matrix. Color code the individual data points by country of origin.</p>
+<p><strong>Deliverable:</strong>&nbsp;p1_matrix.py</p>
+<h1 id="data_set">Data Set</h1>
+<p>The dataset is available in CSV format&nbsp;<a href="../Datasets/old_cars.csv" target="_self">here</a> and in XLS format <a href="../Datasets/old_cars.xlsx" target="_self">here</a>.</p>
+<h1 id="submission">Submission</h1>
+<p>Submit your solution for this project on&nbsp;<em>Brightspace</em> before <strong>September 8, 2021 at 11:59 pm</strong>. Refer to the instructions below.</p>
+<ul>
+<li>Include all the requested python files: p1_grouped.py, p1_line.py, p1_scatter.py, and p1_matrix.py. Alternatively, include html files (with matching names) if you are using <em>D3</em>.</li>
+<li>Use Python 3 in your implementation as well as an up-to-date version of the visualization library of your choice (e.g., Bokeh 2.3.3 or matplotlib 3.4.3)</li>
+<li>Include all submitted files in a single directory named&nbsp;<code>&lt;me&gt;_p1</code>, where&nbsp;<code>&lt;me&gt;</code>&nbsp;is your Purdue login. Do not include the CSV data file in your submission.</li>
+<li>Do not&nbsp;use an absolute path to access the dataset. Assume instead that it will be present in the same directory as your python files.</li>
+</ul>
+<p></p>
+<p></p></body></html>
+</body></html>

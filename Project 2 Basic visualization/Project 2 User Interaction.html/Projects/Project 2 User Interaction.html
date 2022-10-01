@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><head>
+</head>
+<body style="font-family: verdana, sans-serif;font-size: 12px;color: #494c4e;">
+<html><head></head><body><p></p>
+<div id="body_layer">
+<div>
+<h1>Key Dates</h1>
+<table>
+<tbody>
+<tr>
+<td><span style="font-size: 16px;"><strong>Released:</strong></span></td>
+<td><span style="font-size: 16px;">September 6, 2021</span></td>
+</tr>
+<tr>
+<td><strong><span style="font-size: 16px;">Due date:</span></strong></td>
+<td><span style="font-size: 16px;"><span style="color: #ff0000;"><strong>September 22, 2021</strong></span>&nbsp;<em>(before 11:59 PM)</em></span></td>
+</tr>
+</tbody>
+</table>
+<h1 id="overview">Objectives</h1>
+<p><span style="font-size: 14px;">This second programming assignment builds on the results of the&nbsp;<a href="Project%201%20Basic%20Visualization%20Techniques.html" target="_self">first assignment</a> and focuses this time on the <strong>interactivity</strong> of the visualization.</span></p>
+<h1 id="background">Context</h1>
+<p><span style="font-size: 14px;">The dataset for this project is a <em>Country Factbook</em>&nbsp;dataset that compiles a number of interesting attributes about many countries: birth rate, energy consumption, gross domestic product (GDP), health, national debt, and many more. Like the dataset of the first project, this is a tabular dataset. In this project, we will tackle the challenge posed by the visualization of this high-dimensional dataset through several interaction mechanisms.</span></p>
+<h1 id="tasks">Tasks</h1>
+<h2 id="bubble chart">Task 1: Bubble Chart</h2>
+<p><span style="font-size: 14px;">In his famous 2006 <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen" target="_blank" rel="noopener">TED Talk</a> Hans Rosling <a href="https://www.gapminder.org/tools/#$chart-type=bubbles" target="_blank" rel="noopener">visualized</a>&nbsp;global health statistics in impressive and engaging fashion. For this first task, I am asking you to implement a basic&nbsp;bubble chart&nbsp;visualization, in other words a scatter plot in which individual data points are drawn as circles whose&nbsp;<em>area</em>&nbsp;and&nbsp;<em>color</em>&nbsp;vary as a function of two variables (in addition to the two variables that control the horizontal and vertical position of each circle).</span></p>
+<div id="bubble_chart_img"><img src="bubble_chart.png" alt="Example of bubble chart visualization" title="Example of bubble chart visualization" data-d2l-editor-default-img-style="true" width="863" height="505" style="max-width: 100%;"></div>
+<p><span style="font-size: 14px;">To demonstrate your bubble chart implementation, you will create the following visualization: The <em>horizontal</em>&nbsp;(x) coordinate corresponds to 'GDP per capita', the&nbsp;<em>vertical</em>&nbsp;(y) coordinate corresponds to 'Life expectancy at birth', the&nbsp;<em>area</em> of each bubble corresponds to 'Population', and the <em>color</em> corresponds to 'Birth rate'. Make sure to select scales, ranges, and color maps appropriately. <strong>Include the necessary</strong> <strong>legends</strong> (see example above).&nbsp;</span></p>
+<p><span style="font-size: 14px;"><strong>Deliverable:</strong>&nbsp;p2_bubbles.py</span></p>
+<br>
+<h2 id="widgets">Task 2: Widgets</h2>
+<p><span style="font-size: 14px;">In the&nbsp;<a href="#bubble chart">previous task</a> you were asked to assign specific (and arbitrary) attributes to each degree of freedom of your bubble chart. In reality, the visualization would be much more useful if the user could decide at runtime what attributes should be displayed and how. The goal of the second task is to create a user interface that makes this dynamic selection possible. Practically, you will augment the visualization of the first task with 4&nbsp;<a href="https://en.wikipedia.org/wiki/Widget_(GUI)" target="_blank" rel="noopener">widgets</a>&nbsp;that collectively allow one to select for each of&nbsp;<em>x</em>,&nbsp;<em>y</em>,&nbsp;<em>radius</em>, and&nbsp;<em>color</em>, what attribute of the dataset should be used. To do so, your widgets should display a list of the existing attributes. Here, the selection of each displayed attribute should be made through a drop-down menu. An example integrating a drop-down menu in a Bokeh program is shown <a href="https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html#dropdown" target="_blank" rel="noopener">here</a>. Things are less straightforward for Matplotlib and it is probably easier to use a third-party GUI library (such as <a href="https://pypi.org/project/PyQt5/" target="_blank" rel="noopener">PyQt5</a>) and to bind the visualization to the UI widgets. <a href="https://pythonprogramming.net/drop-down-button-window-styles-pyqt-tutorial/" target="_blank" rel="noopener">Here</a> is an example of a drop-down menu in PyQt5. In addition, the integration of Matplotlib in PyQt5 is discussed <a href="https://www.geeksforgeeks.org/how-to-embed-matplotlib-graph-in-pyqt5/" target="_blank" rel="noopener">here</a>.&nbsp;</span></p>
+<p><span style="font-size: 14px;">A second aspect of the visualization that the user might want to control interactively is the scaling of the area with respect to the selected attribute. To enable this, you will add a second type of widget to your visualization, namely a slider bar whose value selection will be tied to the area of the circles in your bubble chart visualization. An example of slider bars associated with a Bokeh visualization is demonstrated <a href="https://docs.bokeh.org/en/latest/docs/gallery/slider.html" target="_blank" rel="noopener">here</a>. Similar&nbsp;<a href="https://www.geeksforgeeks.org/pyqt5-qslider-python/" target="_blank" rel="noopener">examples</a> exist for PyQt5 as well.</span></p>
+<p><span style="font-size: 14px;">Note that your visualization must be automatically updated every time a change is made to any widget selection. Again, <strong>include the necessary legends</strong> and <strong>update them as needed</strong> when changes are made to the drop-down menus or slider bar.&nbsp;</span></p>
+<p><span style="font-size: 14px;"><strong>Deliverable:</strong>&nbsp;p2_widgets.py</span></p>
+<br>
+<h2 id="brushing">Task 3: Linked Brushing</h2>
+<p><span style="font-size: 14px;">We saw in the first project that a scatter plot matrix (plotting all attributes vs. one another) offers a comprehensive view of the data through a set of a 2D projections. For this third task, we will follow a similar approach and display 4 bubble charts in a 2-by-2 array to visualize more attributes than what is possible with a single bubble chart. The user should be free to select different attributes to control the appearance of each chart. For that, you will need to quadruple the number of widgets created in the previous task.</span></p>
+<p><span style="font-size: 14px;">One issue that you will face with this visualization is to understand how data points and patterns present in each chart relate to each other across charts. One way to mitigate this problem consists in selecting the same attributes to control the radius and/or color of the bubbles in all charts. An alternative and more flexible solution is to use what is known as linked brushing. Using linked brushing, the local selection of some data points in a visualization triggers the selection of the same data points in another visualization. You will implement this method for this third task. Make sure that a selection made in any of the four windows is replicated in the other three. Practically, your implementation should allow for data points to be selected within a rectangular region drawn by the user and this selection should be visually accompanied by a change in the appearance of the selected items across all four windows to make them easy to spot. You can find <a href="https://docs.bokeh.org/en/latest/docs/user_guide/interaction/linking.html#linked-brushing" target="_blank" rel="noopener">examples of linked brushing</a> in Bokeh. A bit more coding is needed to achieve the same result within a Matplotlib implementation using its <a href="https://matplotlib.org/stable/users/event_handling.html" target="_blank" rel="noopener">support for events handling</a>.</span></p>
+<p><span style="font-size: 14px;"><strong>Deliverable:</strong>&nbsp;p2_brushing.py</span></p>
+<br>
+<h2 id="tooltip">Task 4: Details on Demand</h2>
+<p><span style="font-size: 14px;">Though four bubble charts allow one to display a substantial number of attributes at once, they can only convey a relatively small portion of the information available in this dataset. A typical means to overcome this limitation is to give the user the option to query additional details about the items included in the visualization (so-called "details-on-demand" in the language of <a href="http://www.ifp.illinois.edu/nabhcs/abstracts/shneiderman.html" target="_blank" rel="noopener">Shneiderman's mantra</a>).</span></p>
+<p><span style="font-size: 14px;">To afford access to additional details, you will use the&nbsp;<em>hover</em>&nbsp;event mechanism to trigger the display of all the attributes associated with a given data point in a tooltip. Specifically, upon moving the mouse over a particular data point, a window should appear to the side of the corresponding location that displays the name of the country along with a series of (attribute name, value) pairs that show a subset of the information available for this country. In addition, the country selected should be highlighted across all four charts. Your fourth task is to add this feature to the visualization tool that you created in&nbsp;<a href="#brushing">Task 3</a>. As a starting point for this task, you should find it helpful to refer to the explanations given <a href="http://docs.glueviz.org/en/stable/index.html" target="_blank" rel="noopener">here</a> for Bokeh and <a href="https://stackoverflow.com/questions/7908636/possible-to-make-labels-appear-when-hovering-over-a-point-in-matplotlib" target="_blank" rel="noopener">here</a>&nbsp;for Matplotlib.</span></p>
+<p><span style="font-size: 14px;"><strong>Deliverable:</strong>&nbsp;p2_tooltip.py</span></p>
+<br>
+<h1 id="data_set">Data Set</h1>
+<p><span style="font-size: 14px;">The dataset is available in CSV format <a href="../Datasets/factbook.csv" target="_self">here</a>.</span></p>
+<h1 id="submission">Submission</h1>
+<p><span style="font-size: 14px;">Submit your solution for this project on <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=335823&amp;type=dropbox&amp;rcode=354644E0-4CD8-419D-A32F-4E78D8778E5C-3643417" target="_self">Brightspace</a>&nbsp;before <strong>September 22, 2021, at 11:59 pm</strong>. The instructions below echo the ones provided for the first programming assignment.</span></p>
+<ul>
+<li><span style="font-size: 14px;">Include all the requested&nbsp;python code files: p2_bubbles.py, p2_widgets.py, p2_brushing.py, p2_tooltip.py</span></li>
+<li><span style="font-size: 14px;">Include all submitted files in a single directory named&nbsp;<code>&lt;myLogin&gt;_p2</code>, where&nbsp;<code>&lt;myLogin&gt;</code>&nbsp;is your Purdue login. Do not include the CSV file in your submission.</span></li>
+<li><span style="font-size: 14px;">Do not use an absolute path to access the dataset. Assume instead that it will be present in the same directory as your python files.</span></li>
+</ul>
+</div>
+<div id="footer"><span style="font-size: 14px;"><em>Last modified September 7, 2021</em></span></div>
+<div></div>
+</div>
+<p></p>
+<p></p></body></html>
+</body></html>
